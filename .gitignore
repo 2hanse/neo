@@ -3,15 +3,14 @@
 
 # c program
 c/*
-c/makefile/test
+c/*.o
+!c/**/
 !c/**/*.c
+!c/**/lib/
+!c/**/lib/*.a
 !c/**/*.h
-!c/**/*.a
-!c/**/Makefile */
-!c/meta/
-c/meta/*
-!c/meta/*.c
-!c/meta/Makefile
+!c/**/Makefile.*
+
 
 #JAVA
 **/*.class
