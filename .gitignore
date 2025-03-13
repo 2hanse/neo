@@ -15,4 +15,3 @@ c/meta/*
 
 #JAVA
 **/*.class
-c/endian.c
