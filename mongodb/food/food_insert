@@ -1,0 +1,9 @@
+use test
+db.things.drop()
+db.things.insert({
+    "fruit":[
+        "apple","orange","plum","peach","mango","pineapple",
+        "greape","melon","water melon", "cherry", "kiwi", "strawberry"
+    ]
+})
+db.food.find({}, {_id:0})
