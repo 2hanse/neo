@@ -1,0 +1,2 @@
+use test
+db.primer.find({borough:"Queens"}).sort({addree:1}).pretty()
