@@ -33,4 +33,4 @@ db.ord_detail.insert({
 
 db.ord_detail.find({ordid_id:db.ord.findOne({ord_id:"2025-03-26"})._id}, {ordid_id:1, _id:0})
 
-db.ord.findOne({id:db.ord_detail.findOne().ordid_id}).total
+db.ord.findOne({_id:db.ord_detail.findOne().ordid_id}).total
