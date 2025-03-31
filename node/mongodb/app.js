@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.get('/things', (req, res) => {
     mongoClient.connect(databaseUrl, function (err, client) {
-        if (err !== null) {
+        if (err != null) {
             res.json({'count' : 0});
         } else {
             db = client.db('test');
