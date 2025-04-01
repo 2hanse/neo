@@ -25,71 +25,71 @@ app.get('/api/users', (req, res) => {
 
 // query string, request O, response O
 app.get('/api/users/user', (req, res) => {
-   let user ="";
-   const {id, name} = req.query;
+    let user = "";
+    const { id, name } = req.query;
 
-   if (req.query.name == null) {
-    user = users.filter(data => data.id == id);
-   } else {
-    user = users.filter(data => data.id == id && data.name == name);
-   }
-   res.json({ok: false, user: user})
+    if (req.query.name == null) {
+        user = users.filter(data => data.id == id);
+    } else {
+        user = users.filter(data => data.id == id && data.name == name);
+    }
+    res.json({ok: false, users: user})
 })
 
-// query params (path param), request O, response O
+// query params(path param), request O, response O
 app.get('/api/users/:id', (req, res) => {
-    let id = req.params.user_id;
+    let id = req.params.id
 
     const user = users.filter(data => data.id == id);
-    res.json({ok: false, user: user})
+    res.json({ok: false, users: user})
 })
 
 // post, request body O, response O
 app.post('/api/users/userBody', (req, res) => {
     const id = req.body.id;
     const user = users.filter(data => data.id == id);
-    res.json({ok: false, user: user})
+    res.json({ok: false, users: user})
 })
 
 // post, request body O, response O
 app.post('/api/users/add', (req, res) => {
-    const {id, name} = req.body;
-    const user = users.concat({id,name})
-    res.json({ok: true, user: user})
+    const { id, name } = req.body;
+    const user = users.concat({id, name});
+    res.json({ok: true, users: user})
 })
 
 // put, request body O, response O
 app.put('/api/users/update', (req, res) => {
-    const {id, name} = req.body;
+    const { id, name } = req.body;
     const user = users.map(data => {
         if (data.id == id) data.name = name
-       return {
-           id: data.id,
-           name: data.name
-       }
-    });
-    res.json({ok: true, user: user})
+        return {
+            id: data.id,
+            name: data.name
+        } 
+    })
+    res.json({ok: true, users: user})
 })
 
 // patch, request params & body O, response O
 app.patch('/api/users/update/:id', (req, res) => {
-    const {id} = req.params;
-    const {name} = req.body;
+    const { id } = req.params;
+    const { name } = req.body;
     const user = users.map(data => {
         if (data.id == id) data.name = name
-       return {
-           id: data.id,
-           name: data.name
-       }
-    });
-    res.json({ok: true, user: user})
+        return {
+            id: data.id,
+            name: data.name
+        } 
+    })
+    res.json({ok: true, users: user})
 })
 
-// delete, request params O, response O
+// delete, request body O, response O
 app.delete('/api/users/delete', (req, res) => {
-    const {id} = req.body;
+    const { id } = req.body;
     const user = users.filter(data => data.id != id);
-    res.json({ok: true, user: user})
+    res.json({ok: true, users: user})
 })
 
 module.exports = app;
