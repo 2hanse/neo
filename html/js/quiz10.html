@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>프로토타입으로 Car 객체 만들기</title>
+        <script>
+            function Car(brand, grade, maxFuel, displacement, price) {
+                this.brand = brand;
+                this.grade = grade;
+                this.maxFuel = maxFuel;
+                this.currentFuel = maxFuel; // 현재 연료량
+                this.displacement = displacement;
+                this.price = price;
+                this.totalDistance = displacement; // 누적 주행거리 (초기값을 displacement로 설정)
+            }
+
+            // 차량 정보 출력
+            Car.prototype.info = function() {
+                document.write(`brand : ${this.brand} <br>`);
+                document.write(`grade : ${this.grade} <br>`);
+                document.write(`maxFuel : ${this.maxFuel} <br>`);
+                document.write(`displacement : ${this.displacement} <br>`);
+                document.write(`price : ${this.price} <br>`);
+                document.write(`<hr/>`);
+            };
+
+            // 주행 메서드
+            Car.prototype.drive = function(start, end, distance) {
+                if (this.currentFuel >= distance) {
+                    this.currentFuel -= distance;
+                    this.totalDistance += distance;
+
+                    document.write(`${this.brand} 차량이 ${start}에서 ${end}까지 ${distance}km 주행하셨습니다.<br>`);
+                    document.write(`총 주행거리는 ${this.totalDistance}입니다.<br>`);
+                    document.write(`잔여 연료량은 ${this.currentFuel}입니다.<br>`);
+                    document.write("<hr/>");
+                }
+            };
+
+            // 주유 메서드
+            Car.prototype.refueling = function(fuel) {
+                this.currentFuel += fuel;
+                if (this.currentFuel > this.maxFuel) {
+                    this.currentFuel = this.maxFuel; // 최대 연료량 초과 방지
+                }
+                document.write(`${fuel}L 주유하여 잔여 연료량은 ${this.currentFuel}입니다.<br>`);
+                document.write("<hr/>");
+                
+            };
+        </script>
+    </head>
+    <body>
+        <h3>프로토타입으로 Car 객체 만들기</h3>
+        <hr/>
+        <script>
+            let benz = new Car("Benz", "SUV", 900, 4000, 3000);
+            benz.info();
+            benz.drive("seoul", "busan", 400);
+            benz.drive("busan", "incheon", 460);
+            benz.refueling(860);
+
+            let bmw = new Car("BMW", "Sedan", 500, 2500, 2000); 
+            bmw.info();  
+            bmw.drive("seoul", "daejeon", 300);
+            bmw.refueling(200);
+            bmw.drive("Daejeon", "Seoul",300);
+        </script>
+    </body>
+</html>
