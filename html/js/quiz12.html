@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Palindrome</title>
+    <script>
+      function checkPalindrome() {
+        const input = document.getElementById("input").value.trim();
+        const type = document.querySelector('input[name="ta"]:checked').value; // 0: 숫자, 1: 문자
+        const output = document.getElementById("output");
+
+        // if (input.length !== 3) {
+        //   output.innerText = "3자리만 입력 가능합니다.";
+        //   return;
+        // }
+
+        // if (type === "0" && isNaN(input)) {
+        //   output.innerText = "숫자를 선택했지만 입력값이 숫자가 아닙니다.";
+        //   return;
+        // }
+
+        // if (type === "1" && !isNaN(input)) {
+        //   output.innerText = "문자를 선택했지만 입력값이 문자(알파벳 등)가 아닙니다.";
+        //   return;
+        // }
+
+        // Palindrome 확인
+        const reversed = input.split("").reverse().join("");
+        if (input === reversed) {
+          output.innerText = `입력하신 ${type === "0" ? "숫자" : "문자"}는 Palindrome입니다.`;
+        } else {
+          output.innerText = `입력하신 ${type === "0" ? "숫자" : "문자"}는 Palindrome이 아닙니다.`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h3>Palindrome</h3>
+    <hr />
+    <form>
+      <input type="text" id="input" placeholder="숫자/문자 3글자" />
+      <input 
+        type="button"
+        value="Check Palindrome"
+        onClick="checkPalindrome()"
+      />
+      <p>
+        <input type="radio" name="ta" value="0" checked />숫자
+        <input type="radio" name="ta" value="1" />문자
+      </p>
+    </form>
+    <div style="margin:10px">
+      <span id="output">3자리 문자 또는 숫자를 입력하세요.</span>
+    </div>
+  </body>
+</html>
