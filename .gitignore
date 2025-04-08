@@ -36,3 +36,13 @@ oracle/**/node_modules
 oracle/**/package-lock.json
 node/**/package-lock.json
 node/**/package.json
+
+## pycharm
+/env.
+/.idea/.gitignore
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
+/.idea/deployment.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/neo.iml
