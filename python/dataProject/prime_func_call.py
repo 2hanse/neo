@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 
-from prime_func import is_prime
+import prime_func
 
 while True:
-    try:
-        num = int(input("input number(0 : quit): "))
-        if num == 0:
-            break
-        if is_prime(num):
-            print(f"{num} is prime number")
-        else:
-            print(f"{num} is not prime number")
-    except ValueError:
-        print("Please enter a valid integer.")
+    n = int(input("Input number(0 : Quit) : "))
+
+    if (n == 0):
+        break
+    if (n < 2) :
+        print("re-enter number~!!")
+        continue
+    print(f"{n} is prime number") if prime_func.prime(n) == 1 else (
+        print(f"{n} is not prime number"))
