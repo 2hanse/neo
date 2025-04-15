@@ -1,13 +1,14 @@
 import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 
 driver = webdriver.Chrome()
 print(type(driver))
 print('-' * 50)
 
 print('Go Goole~!!')
-url = www.google.com
+url = 'https://www.google.com'
 driver.get(url)
 
 search_textbook = driver.find_element(By.NAME, 'q')
