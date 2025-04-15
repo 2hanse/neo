@@ -46,3 +46,4 @@ node/**/package.json
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/neo.iml
+**/secret.json

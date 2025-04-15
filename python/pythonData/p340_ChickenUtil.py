@@ -10,10 +10,10 @@ from bs4 import BeautifulSoup
 class ChickenStore():
     myencoding = 'utf-8'
 
-    def getWebDriver(self, cmdJavaScript):
+    def getWebDraiver(self, cmdJavaScript):
         print(cmdJavaScript)
         self.driver.execute_script(cmdJavaScript)
-        wait=5
+        wait = 5
         time.sleep(wait)
         mypage = self.driver.page_source
 
@@ -24,7 +24,7 @@ class ChickenStore():
             return None
         else:
             return BeautifulSoup(self.soup, 'html.parser')
-        
+    
     def get_request_url(self):
         request = urllib.request.Request(self.url)
         try:
@@ -42,26 +42,26 @@ class ChickenStore():
             print(msg)
             return None
         
-        def save2CSV(self, result):
-            data = pd.DataFrame(result, columns = self.mycolumns)
-            data.to_csv(self.brandName + '.csv', encoding=self.myencoding, index=True)
+    def save2Csv(self, result):
+        data = pd.DataFrame(result, columns=self.mycolumns)
+        data.to_csv(self.brandName + '.csv', encoding=self.myencoding, index=True)
 
-            def __init__(self, brandName, url):
-                self.brandName = brandName
-                self.url = url
+    def __init__(self, brandName, url):
+        self.brandName = brandName
+        self.url = url
 
-                self.mycolumns = ['brand', 'store', 'sido', 'gungu', 'address']
+        self.mycolumns = ['brand', 'store', 'sido', 'gungu', 'address']
 
-                if self.brandName == ['pelicana', 'nene', 'cheogajip', 'gobne']:
-                    self.mycolumns.append('phone')
-                else:
-                    pass
-
-                if self.brandName == 'goobne':
-                    self.soup = self.get_request_url()
-                    self.driver = None
-                else:
-                    self.soup = None
-                    filepath = '/root/chromedriver/chromedriver'
-                    self.driver = webdriver.Chrome(filepath)
-                    self.driver.get(self.url)
+        if self.brandName in ['pelicana', 'nene', 'cheogajip', 'goobne']:
+            self.mycolumns.append('phone')
+        else:
+            pass
+    
+        if self.brandName != 'goobne':
+            self.soup = self.get_request_url()
+            self.driver = None
+        else:
+            self.soup = None
+            filepath = '/root/chromedriver/chromedriver'
+            self.driver = webdriver.Chrome(filepath)
+            self.driver.get(self.url)
