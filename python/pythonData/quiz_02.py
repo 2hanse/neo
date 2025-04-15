@@ -9,7 +9,7 @@ url = "http://www.cgv.co.kr/movies/?lt=1&ft=0"
 html = urllib.request.urlopen(url)
 soup = BeautifulSoup(html, 'html.parser')
 
-infos = soup.find_all('div', attrs = {'class': 'sect-movie-chart'})
+infos = soup.find_all('div', attrs = {'class': 'sect-movie-chart'})  # 조건에 맞는 HTML 요소를 모두 리스트로 반환
 # print('-' * 50)
 # print(infos)
 # print('-' * 50)
@@ -38,7 +38,7 @@ mydata3 = result
 # print(mydata3)
 
 result = []
-release = soup.select("span > strong")
+release = soup.select("span > strong")     # span 아래에 있는 strong 태그를 찾음.
 for i in release:
     result.append(i.text.strip()[0:10])
 mydata4 = result
