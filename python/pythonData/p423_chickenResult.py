@@ -3,15 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 plt.rcParams['font.family'] = 'NanumBarunGothic'
-chickenfile = 'xx_chicken.csv'
-columns = ['지역', '브랜드', '매장수']
-myframe = pd.read_csv(chickenfile, names=columns, header=None)
+chickenfile = 'xx_Chicken.csv'
+colnames = ['지역', '브랜드', '매장수']
+myframe = pd.read_csv(chickenfile, names=colnames, header=None)
 print(myframe)
 print('-' * 50)
 
 myframe['매장수'] = pd.to_numeric(myframe['매장수'], errors='coerce')
+myframe = myframe[~myframe['브랜드'].astype(str).str.contains('brand')]
 mygrouping = myframe.groupby('브랜드')['매장수']
-sumSeries = mygrouping.sum()[1:]
+sumSeries = mygrouping.sum()
 print(sumSeries)
 print('-' * 50)
 
@@ -22,7 +23,9 @@ myalpha = 0.7
 
 sumSeries.plot(kind='bar', color=mycolor, title=mytitle, alpha=myalpha, legend=False, rot=15, ylim=myylim, grid=False)
 
-filename = 'p423_chickenResult.png'
+filename = 'xx_chicken.png'
 plt.savefig(filename, dpi=400, bbox_inches='tight')
 print(filename + ' saved')
 plt.show()
+
+print('finished...')
