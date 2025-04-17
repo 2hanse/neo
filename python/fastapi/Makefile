@@ -1,3 +1,10 @@
-all: 
-	uvicorn main:app --host 0.0.0.0 --port 3000 --reload
-# all : 전체를 실행하는 키워드
+basic1:
+	uvicorn $@:app --host 0.0.0.0 --port 3000 --reload
+basic2:
+	uvicorn $@:app --host 0.0.0.0 --port 3000 --reload
+api1:
+	uvicorn $@:app --host 0.0.0.0 --port 3000 --reload
+api2:
+	uvicorn $@:app --host 0.0.0.0 --port 3000 --reload
+api3:
+	uvicorn $@:app --host 0.0.0.0 --port 3000 --reload
