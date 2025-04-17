@@ -1,4 +1,4 @@
-create table myterror(
+create table myterror (
     event_id varchar2(20),
     iyear integer, 
     imonth integer,
