@@ -4,10 +4,11 @@ create table myterror(
     imonth integer,
     iday integer,
     country integer,
+    country_txt varchar2(100),
     region integer,
     region_txt varchar2(100),
     provstate varchar2(100),
     city varchar2(100),
-    latitude integer,
-    longitude integer
+    latitude float,
+    longitude float
 )
