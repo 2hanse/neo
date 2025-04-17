@@ -6,7 +6,7 @@ conn = None
 cur = None
 
 try:
-    loginfo = 'hr/1234@192.168.1.111:1521/xe'
+    loginfo = 'hr/1234@192.168.1.142:1521/xe'
     conn = cx_Oracle.connect(loginfo)
 
     print(type(conn))
