@@ -64,7 +64,7 @@ while(True):
         listTree = xmlTree.find('body').find('data').findall('list')
         print(listTree)
 
-        for node in listTree:
+        for node in listTree:                                        # 데이터 구조를 살펴봐야, 정확한 구조를 알 수 있음.
             bikeFirstLanes = node.find("bikeFirstLanes").text
             bikeFirstLanesRatio = node.find("bikeFirstLanesRatio").text
             bikeLanesRatio = node.find('bikeLanesRatio').text

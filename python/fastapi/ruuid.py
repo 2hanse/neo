@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, status
-from fastapi.responses import PlainTextResponse
-import uuid
+from fastapi.responses import PlainTextResponse   # type: ignore
+import uuid                                       # uuid : 전세계적으로 고유한 ID를 만들기 위해 사용하는 방식식
 
 app = FastAPI()
 

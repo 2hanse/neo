@@ -12,7 +12,7 @@ def get_Json_data():
     print(myfile)
     print('-' * 50)
 
-    jsondata = json.loads(myfile)
+    jsondata = json.loads(myfile)            # 처음은 string으로 생성, 이를 json 형태로 변경하는 과정.
     print(type(jsondata))
     print(jsondata)
     print('-' * 50)

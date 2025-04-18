@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel # type: ignore
 
 class HelloWorldRequest(BaseModel):
     name : str
@@ -11,7 +11,7 @@ app = FastAPI()
 async def HealthCheck():
     return {"status": "ok"}
 
-@app.get(path='/hello')
+@app.get(path='/hello')                                        # 매개변수를 클래스로 사용하는 예시.
 async def Hello_with_querystring(name:str):
         return "Hello with name. your name is " + name 
 

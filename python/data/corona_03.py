@@ -52,7 +52,7 @@ print(items)
 print('-' * 50)
 
 # dict key is row
-df = pd.DataFrame.from_dict(items, orient='index').rename(columns={0:'result'})
+df = pd.DataFrame.from_dict(items, orient='index').rename(columns={0:'result'})          # dict key는 일반적으로 columns로 생성됨.
 print(type(df))
 print(df)
 print('-' * 50)

@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, status
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse # type: ignore
 
 app = FastAPI()
 

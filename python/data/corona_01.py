@@ -20,7 +20,7 @@ def get_secret(setting, secrets=secrets):
 url = 'https://apis.data.go.kr/1352000/ODMS_COVID_02/callCovid02Api'
 
 # today = (datetime.today() - timedelta(1)).strftime("%Y%m%d")
-today = (datetime.today() - relativedelta(months=30)).strftime("%Y%m%d")
+today = (datetime.today() - relativedelta(months=30)).strftime("%Y%m%d")   # datetime을 통해서 날짜 값을 알 수 있음.
 print(today)
 
 params = '?serviceKey=' + get_secret("data_apiKey")
@@ -32,7 +32,7 @@ params += '&status_dt=' + str(today)
 url += params
 print(url)
 
-response = requests.get(url)
+response = requests.get(url)           # requests.get 타입으로 받아오면 response의 데이터 타입은 json 타입으로 받아옴.
 print(response)
 print('-' * 50)
 
@@ -51,7 +51,7 @@ print(type(items))
 print(items)
 print('-' * 50)
 
-df = pd.DataFrame(items).rename(index={0: 'result'}).T
+df = pd.DataFrame(items).rename(index={0: 'result'}).T               # 0이 아닌 항목만 뽑아냄
 print(type(df))
 print(df)
 print('-' * 50)
