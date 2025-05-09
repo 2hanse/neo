@@ -49,3 +49,6 @@ node/**/package.json
 /.idea/neo.iml
 **/secret.json
 
+## docker
+docker/mysql/mysql*
+docker/mongodb/mongo*
